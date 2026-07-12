@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Braclets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="logo.jpg" width="90px">
+    <h1> Collection de Braclets</h1>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+</nav>
+
+<section> 
+       <!-- Barre de recherche -->
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Rechercher un..">
+    </div>
+
+    <div class="gallery">
+
+        <div class="item">
+            <img id="braclet1" 
+                 src="braclet1.jpg"
+                 data-images="braclet1.jpg,braclet1_1.jpg,braclet1_2.jpg,braclet1_3.jpg">
+            <h3>braclet MESSIKA</h3>
+            <p>Poids : 6.3g</p>
+           
+        </div>
+
+        <div class="item">
+            <img src="braclet2.jpg">
+            <h3>braclet CARTIER</h3>
+            <p>Poids : 5.3g</p>
+            
+        </div>
+
+        <div class="item">
+            <img src="braclet3.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 3.3g</p>
+           
+        </div>
+
+                <div class="item">
+            <img src="braclet4.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 3.6g</p>
+            
+        </div>
+                <div class="item">
+            <img src="braclet5.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 3.6g</p>
+            
+        </div>
+                <div class="item">
+            <img src="braclet6.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 3.8g</p>
+            
+        </div>
+  
+                <div class="item">
+            <img src="braclet7.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 3.5g</p>
+           
+        </div>
+                <div class="item">
+            <img src="braclet8.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 3.7g</p>
+            
+        </div>
+                <div class="item">
+            <img src="braclet9.jpg">
+            <h3>Braclet jonc étroit a charniere T1</h3>
+            <p>Poids : 7.2g</p>
+            
+        </div>
+                        <div class="item">
+            <img src="braclet10.jpg">
+            <h3>braclet jinc wire pavé de diamants</h3>
+            <p>Poids : 7.6g</p>
+           
+        </div>
+                        <div class="item">
+            <img src="braclet11.jpg">
+            <h3>braclet Boucheron</h3>
+            <p>Poids : 10.8g</p>
+            
+        </div>
+                        <div class="item">
+            <img src="braclet12.jpg">
+            <h3>braclet</h3>
+            <p>Poids : 5.3g</p>
+            
+        </div>
+                        <div class="item">
+            <img src="braclet13.jpg">
+            <h3>braclet Van Cleef </h3>
+            <p>Poids : 8.2g</p>
+            
+        </div>
+        <div class="item">
+            <img src="braclet14.jpg">
+            <h3>braclet Van Cleef or blanc</h3>
+            <p>Poids : 8.2g</p>
+            
+        </div>
+         <div class="item">
+            <img src="braclet15.jpg">
+            <h3>braclet Cartier juste un clou </h3>
+            <p>Poids : 7.3g</p>
+            
+        </div>
+        <div class="item">
+            <img src="braclet16.jpg">
+            <h3>braclet Messika</h3>
+            <p>Poids : 2.9g</p>
+            
+        </div>
+        
+    </div>
+</section>
+<section id="contact">
+ <h1>Bijouterie Bouchelaala</h1>
+    <h2>Contact</h2>
+
+    <p>📞 +213 550162932</p>
+    <p>📞 +213 551440302</p>
+    <p>📞 +213 552993991</p>
+    
+    <p>📍 Bouchelaala el afrah Rrghaia 1</p>
+    <a class="map-btn" target="_blank"
+       href="https://maps.app.goo.gl/agVXcxpzh1gPSCcd6?g_st=am">
+       Voir sur Google Maps
+    </a>
+
+    <br><br>
+
+    <p>📍 Bouchelaala el afrah Rrghaia 2</p>
+    <a class="map-btn" target="_blank"
+       href="https://maps.app.goo.gl/ug9HTxrR74FRi1rf6?g_st=am">
+       Voir sur Google Maps
+    </a>
+
+</section>
+
+<footer>
+    <p>© 2026 Bijouterie Bouchelaala</p>
+</footer>
+
+
+<!-- Image agrandie -->
+<div id="lightbox">
+    <img id="lightbox-img">
+</div>
+
+<script>
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const braclet1 = document.getElementById("braclet1");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+const images = braclet1.dataset.images.split(",");
+let index = 0;
+let interval;
+
+// ---------------- AUTO CARROUSEL SURVOL ----------------
+braclet1.addEventListener("mouseenter", () => {
+    interval = setInterval(() => {
+        index = (index + 1) % images.length;
+        braclet1.src = images[index];
+    }, 700);
+});
+
+braclet1.addEventListener("mouseleave", () => {
+    clearInterval(interval);
+    braclet1.src = images[0];
+    index = 0;
+});
+
+
+// ---------------- DRAG SLIDER ----------------
+let startX = 0;
+let isDown = false;
+let moved = false;
+
+braclet1.addEventListener("mousedown", (e) => {
+    isDown = true;
+    moved = false;
+    startX = e.clientX;
+});
+
+window.addEventListener("mouseup", () => {
+    isDown = false;
+});
+
+window.addEventListener("mousemove", (e) => {
+    if(!isDown) return;
+
+    let diff = e.clientX - startX;
+
+    if(Math.abs(diff) > 40){
+        moved = true;
+
+        if(diff < 0){
+            index = (index + 1) % images.length;
+        } else {
+            index = (index - 1 + images.length) % images.length;
+        }
+
+        braclet1.src = images[index];
+        startX = e.clientX;
+    }
+});
+
+
+// ---------------- LIGHTBOX CLIC SIMPLE ----------------
+braclet1.addEventListener("click", () => {
+    if(moved) return; // si drag → pas lightbox
+
+    lightbox.style.display = "flex";
+    lightboxImg.src = braclet1.src;
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search");
+    const items = document.querySelectorAll(".gallery .item");
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+
+        items.forEach(item => {
+            const title = item.querySelector("h3").textContent.toLowerCase();
+            if(title.includes(query)){
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+<!-- Bouton retour en haut -->
+<a href="#" class="back-to-top" id="backToTop">
+    &#8679; <!-- Code HTML pour une flèche vers le haut (⬆) -->
+</a>
+<script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        // Si l'utilisateur descend de 300px, on affiche le bouton
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Optionnel: Défilement doux (smooth scroll) vers le haut
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>

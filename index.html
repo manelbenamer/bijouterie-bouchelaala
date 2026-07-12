@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bijouterie Bouchelaala</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="logo.jpg" width="90px">
+    <h1>Bijouterie Bouchelaala</h1>
+</header>
+
+<nav>
+    <a href="#histoire">Histoire</a>
+    <a href="#galerie">Bijoux</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="histoire">
+    <h2>Notre Histoire</h2>
+    <p>
+        La Bijouterie Bouchlaala est née d’une passion familiale pour l’art du bijou et le travail de l’or dans les années 1990.<br>
+                Partie d’un petit atelier, elle est devenue une adresse de confiance pour les moments précieux de la vie.<br>
+                        Aujourd’hui, elle allie savoir-faire artisanal et designs modernes depuis plus de 25 ans.
+    </p>
+</section>
+
+<section id="galerie">
+    <h2>Nos Bijoux</h2>
+
+    <div class="gallery">
+
+        <!-- BAGUE CLIQUABLE -->
+        <div class="item">
+            <a href="bagues.html">
+                <img src="bague.jpg">
+            </a>
+            <p>les Bagues </p>
+        </div>
+
+        <div class="item">
+            <a href="colliers.html">
+            <img src="colier.jpg">
+            </a>
+            <p> les Colliers </p>
+        </div>
+
+        <div class="item">
+            <a href="Braclets.html">
+            <img src="montre.jpg">
+            </a>
+            <p>les Bracelets</p>
+        </div>
+        <div class="item">
+            <a href="parures.html">
+            <img src="parure.jpg">
+            </a>
+            <p>les parures</p>
+        </div>
+        <div class="item">
+            <a href="boucles.html">
+            <img src="boucle7.jpg">
+            </a>
+            <p>les Boucles d'oreille</p>
+        </div>
+         <div class="item">
+            <a href="traditionnel.html">
+            <img src="tra1.jpg">
+            </a>
+            <p>Bijoux Traditionnel</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+ <h1>Bijouterie Bouchelaala</h1>
+    <h2>Contact</h2>
+
+    <p>📞 +213 550162932</p>
+    <p>📞 +213 551440302</p>
+    <p>📞 +213 552993991</p>
+    
+    <p>📍 Bouchelaala el afrah Rrghaia 1</p>
+    <a class="map-btn" target="_blank"
+       href="https://maps.app.goo.gl/agVXcxpzh1gPSCcd6?g_st=am">
+       Voir sur Google Maps
+    </a>
+
+    <br><br>
+
+    <p>📍 Bouchelaala el afrah Rrghaia 2</p>
+    <a class="map-btn" target="_blank"
+       href="https://maps.app.goo.gl/ug9HTxrR74FRi1rf6?g_st=am">
+       Voir sur Google Maps
+    </a>
+
+</section>
+
+<footer>
+    <p>© 2026 Bijouterie Bouchelaala</p>
+</footer>
+
+<!-- Bouton retour en haut -->
+<a href="#" class="back-to-top" id="backToTop">
+    &#8679; <!-- Code HTML pour une flèche vers le haut (⬆) -->
+</a>
+<script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        // Si l'utilisateur descend de 300px, on affiche le bouton
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Optionnel: Défilement doux (smooth scroll) vers le haut
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</body>
+</html>

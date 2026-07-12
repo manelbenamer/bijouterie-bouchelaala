@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Parures</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="logo.jpg" width="90px">
+    <h1> Collection de Parures</h1>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+</nav>
+
+<section>
+        <!-- Barre de recherche -->
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Rechercher un...">
+    </div>
+
+    <div class="gallery">
+
+        <div class="item">
+            <img src="parure1.jpg">
+            <h3>parure</h3>
+            <p>Poids : 32.3g</p>
+           
+        </div>
+
+        <div class="item">
+            <img src="parure2.jpg">
+            <h3>parure</h3>
+            <p>Poids : 28.25g</p>
+            
+        </div>
+
+        <div class="item">
+            <img src="parure3.jpg">
+            <h3>parure</h3>
+            <p>Poids : 23.8g</p>
+           
+        </div>
+
+                <div class="item">
+            <img src="parure4.jpg">
+            <h3>parure</h3>
+            <p>Poids : 6.7g</p>
+            
+        </div>
+                <div class="item">
+            <img src="parure5.jpg">
+            <h3>parure </h3>
+            <p>Poids : 33.4g</p>
+            
+        </div>
+                <div class="item">
+            <img src="parure6.jpg">
+            <h3>parure monaco</h3>
+            <p>Poids : 30g</p>
+            
+        </div>
+  
+                <div class="item">
+            <img src="parure7.jpg">
+            <h3>parure</h3>
+            <p>Poids : 40.8g</p>
+           
+        </div>
+                <div class="item">
+            <img src="parure8.jpg">
+            <h3>parure</h3>
+            <p>Poids : 44.3g</p>
+            
+        </div>
+                <div class="item">
+            <img src="parure9.jpg">
+            <h3>parure</h3>
+            <p>Poids : 36.4g</p>
+            
+        </div>
+                        <div class="item">
+            <img src="parure10.jpg">
+            <h3>parure</h3>
+            <p>Poids : 22g</p>
+           
+        </div>
+                        <div class="item">
+            <img src="parure11.jpg">
+            <h3>parure</h3>
+            <p>Poids : 45.3g</p>
+            
+        </div>
+            <div class="item">
+            <img src="parure12.jpg">
+            <h3>parure</h3>
+            <p>Poids : 53g</p>
+            
+        </div>
+                        <div class="item">
+            <img src="parure13.jpg">
+            <h3>parure </h3>
+            <p>Poids : 23.5g</p>
+            
+        </div>
+        <div class="item">
+            <img src="parure14.jpg">
+            <h3>parure</h3>
+            <p>Poids : 30.45g</p>
+            
+        </div>
+         <div class="item">
+            <img src="parure15.jpg">
+            <h3>parure</h3>
+            <p>Poids : 27.68g</p>
+            
+        </div>
+
+        
+    </div>
+
+
+</section>
+<section id="contact">
+ <h1>Bijouterie Bouchelaala</h1>
+    <h2>Contact</h2>
+
+    <p>📞 +213 550162932</p>
+    <p>📞 +213 551440302</p>
+    <p>📞 +213 552993991</p>
+    
+    <p>📍 Bouchelaala el afrah Rrghaia 1</p>
+    <a class="map-btn" target="_blank"
+       href="https://maps.app.goo.gl/agVXcxpzh1gPSCcd6?g_st=am">
+       Voir sur Google Maps
+    </a>
+
+    <br><br>
+
+    <p>📍 Bouchelaala el afrah Rrghaia 2</p>
+    <a class="map-btn" target="_blank"
+       href="https://maps.app.goo.gl/ug9HTxrR74FRi1rf6?g_st=am">
+       Voir sur Google Maps
+    </a>
+
+</section>
+
+<footer>
+    <p>© 2026 Bijouterie Bouchelaala</p>
+</footer>
+<!-- Image agrandie -->
+<div id="lightbox">
+    <img id="lightbox-img">
+</div>
+
+<script>
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search");
+    const items = document.querySelectorAll(".gallery .item");
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+
+        items.forEach(item => {
+            const title = item.querySelector("h3").textContent.toLowerCase();
+            if(title.includes(query)){
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+<!-- Bouton retour en haut -->
+<a href="#" class="back-to-top" id="backToTop">
+    &#8679; <!-- Code HTML pour une flèche vers le haut (⬆) -->
+</a>
+<script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        // Si l'utilisateur descend de 300px, on affiche le bouton
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Optionnel: Défilement doux (smooth scroll) vers le haut
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>
