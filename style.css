@@ -10,72 +10,65 @@ header {
     text-align: center;
     padding: 30px;
 }
-
 nav {
     background: #ffde21;
     padding: 15px;
     text-align: center;
 }
-
 nav a {
     margin: 15px;
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
-
 section {
     padding: 40px;
     text-align: center;
 }
-
 .gallery {
     display: flex;
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
 }
-
+.item {
+    width: 250px; /* pour que flex-wrap sache où couper la ligne */
+}
 .item img {
-    width: 250px;
+    width: 100%;       /* remplace le "width: 250px" fixe */
+    max-width: 250px;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
     cursor: pointer;
     transition: 0.3s;
 }
-
 /* petit zoom au survol */
 .item img:hover {
     transform: scale(1.05);
 }
-
 .item p {
     font-weight: bold;
 }
-
 /* -------- CONTACT -------- */
 #contact {
     padding: 50px;
     background: #1A433A;
     color: white;
 }
-
 #contact .map-btn {
     background: gold;
     color: black;
 }
-
 #contact .map-btn:hover {
     background: orange;
 }
-
 footer {
     background: #111;
     color: white;
     padding: 15px;
     text-align: center;
 }
-
 .map-btn {
     display: inline-block;
     margin-top: 10px;
@@ -86,13 +79,10 @@ footer {
     border-radius: 8px;
     font-weight: bold;
 }
-
 .map-btn:hover {
     background: orange;
 }
-
 /* -------- ZOOM IMAGE -------- */
-
 #lightbox{
     position: fixed;
     top:0;
@@ -105,7 +95,6 @@ footer {
     align-items:center;
     z-index:999;
 }
-
 #lightbox img{
     max-width:90%;
     max-height:90%;
@@ -116,7 +105,7 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #333; /* Couleur de fond */
+    background-color: #333;
     color: white;
     width: 50px;
     height: 50px;
@@ -125,20 +114,15 @@ footer {
     border-radius: 50%;
     font-size: 24px;
     text-decoration: none;
-    
-    /* Animation et visibilité */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
 .back-to-top:hover {
-    background-color: #555; /* Couleur au survol */
+    background-color: #555;
 }
-
-/* Classe ajoutée par JavaScript pour afficher le bouton */
 .back-to-top.show {
     opacity: 1;
     visibility: visible;
@@ -147,11 +131,87 @@ footer {
     margin-bottom: 30px;
     text-align: center;
 }
-
 #search {
     width: 50%;
     padding: 10px 15px;
     font-size: 16px;
     border-radius: 8px;
     border: 1px solid #ccc;
+}
+
+/* ===================================================
+   RESPONSIVE - TABLETTE (écrans <= 900px)
+   =================================================== */
+@media (max-width: 900px) {
+    section {
+        padding: 25px;
+    }
+    .item {
+        width: 200px;
+    }
+    #search {
+        width: 70%;
+    }
+}
+
+/* ===================================================
+   RESPONSIVE - TELEPHONE (écrans <= 600px)
+   =================================================== */
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 22px;
+    }
+    nav {
+        padding: 10px;
+    }
+    nav a {
+        display: inline-block;
+        margin: 8px;
+        font-size: 14px;
+    }
+    section {
+        padding: 15px;
+    }
+    section h2 {
+        font-size: 20px;
+    }
+    .gallery {
+        gap: 15px;
+    }
+    .item {
+        width: 45%; /* 2 images par ligne au lieu de 250px fixes */
+    }
+    #contact {
+        padding: 25px;
+    }
+    #contact h1 {
+        font-size: 20px;
+    }
+    .map-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    #search {
+        width: 90%;
+    }
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* ===================================================
+   RESPONSIVE - TRES PETIT ECRAN (écrans <= 380px)
+   =================================================== */
+@media (max-width: 380px) {
+    .item {
+        width: 100%; /* 1 image par ligne */
+    }
 }
